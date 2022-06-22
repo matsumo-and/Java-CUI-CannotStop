@@ -9,7 +9,7 @@ public class Dice {
 
 	public Dice() {
 	}
-
+	
 	public int roll() {
 		//num = random number from MIN to MAX
 		int num = random.nextInt(MAX - MIN + 1) + MIN;
