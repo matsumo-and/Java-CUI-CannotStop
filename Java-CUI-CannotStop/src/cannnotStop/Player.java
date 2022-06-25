@@ -1,6 +1,7 @@
 package cannnotStop;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Player {
 	private static final int MAX_LANE_TWO = 3;
@@ -14,7 +15,7 @@ public class Player {
 	private static final int MAX_LANE_TEN = 7;
 	private static final int MAX_LANE_ELEVEN = 5;
 	private static final int MAX_LANE_TWELVE = 3;
-
+	private static final HashMap<Integer, Integer> maxLaneMap = new HashMap<Integer, Integer>();
 	private static final ArrayList<Integer> completedLane = new ArrayList<Integer>();
 
 	private int successedLane = 0;
@@ -23,8 +24,20 @@ public class Player {
 
 	public Player() {
 		status = 0;
-		for (int i = 0; i <= 10; i++)
+		for (int i = 0; i <= 10; i++) {
 			lanes.add(0);
+		}
+		maxLaneMap.put(2, MAX_LANE_TWO);
+		maxLaneMap.put(3, MAX_LANE_THREE);
+		maxLaneMap.put(4, MAX_LANE_FOUR);
+		maxLaneMap.put(5, MAX_LANE_FIVE);
+		maxLaneMap.put(6, MAX_LANE_SIX);
+		maxLaneMap.put(7, MAX_LANE_SEVEN);
+		maxLaneMap.put(8, MAX_LANE_EIGHT);
+		maxLaneMap.put(9, MAX_LANE_NINE);
+		maxLaneMap.put(10, MAX_LANE_TEN);
+		maxLaneMap.put(11, MAX_LANE_ELEVEN);
+		maxLaneMap.put(12, MAX_LANE_TWELVE);
 	}
 
 	public static ArrayList<Integer> getCompletedLane() {
@@ -44,86 +57,14 @@ public class Player {
 		int index = laneNum - 2;
 		int currentNum = lanes.get(index);
 
-		switch (laneNum) {
-		case 2:
-			if (currentNum < MAX_LANE_TWO) {
+		if (laneNum >= 2 && laneNum <= 12) {
+			if (currentNum < maxLaneMap.get(laneNum)) {
 				lanes.set(index, currentNum + 1);
 			} else {
 				setCompletedLane(laneNum);
 			}
-			break;
-		case 3:
-			if (currentNum < MAX_LANE_THREE) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 4:
-			if (currentNum < MAX_LANE_FOUR) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 5:
-			if (currentNum < MAX_LANE_FIVE) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 6:
-			if (currentNum < MAX_LANE_SIX) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 7:
-			if (currentNum < MAX_LANE_SEVEN) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 8:
-			if (currentNum < MAX_LANE_EIGHT) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 9:
-			if (currentNum < MAX_LANE_NINE) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 10:
-			if (currentNum < MAX_LANE_TEN) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 11:
-			if (currentNum < MAX_LANE_ELEVEN) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		case 12:
-			if (currentNum < MAX_LANE_TWELVE) {
-				lanes.set(index, currentNum + 1);
-			} else {
-				setCompletedLane(laneNum);
-			}
-			break;
-		default:
 		}
+
 		for (int i : lanes) {
 			System.out.print(i + ",");
 		}
