@@ -64,9 +64,11 @@ public class Player {
 				setCompletedLane(laneNum);
 			}
 		}
-
+		
+		int num = 2;
 		for (int i : lanes) {
-			System.out.print(i + ",");
+			System.out.print(i + "/" + maxLaneMap.get(num) + " ");
+			num ++;
 		}
 		System.out.println();
 	}
