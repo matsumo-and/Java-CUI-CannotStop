@@ -1,6 +1,5 @@
 package cannnotStop;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayerMethod {
@@ -29,9 +28,7 @@ public class PlayerMethod {
 		return decision;
 	}
 
-	public static ArrayList<Integer> getCombination() {
-		ArrayList<Integer> combiList = new ArrayList<Integer>();
-
+	public static Integer[][] getCombination() {
 		int dice1 = Dice.roll();
 		int dice2 = Dice.roll();
 		int dice3 = Dice.roll();
@@ -40,10 +37,18 @@ public class PlayerMethod {
 		System.out.println(
 				String.format("サイコロの目：{%s, %s, %s, %s}", dice1, dice2, dice3, dice4));
 
-		System.out.println(
-				String.format("1 {%s, %s}: %s ", dice1, dice2, dice1+dice2)
-				+ String.format("{%s, %s}: %s ", dice1, dice3, dice1+dice3)
-				);
+		Integer[][] combiList = {
+				{ dice1 + dice2, dice3 + dice4 },
+				{ dice1 + dice3, dice2 + dice4 },
+				{ dice1 + dice4, dice3 + dice4 }
+		};
+
+		for (Integer[] list : combiList) {
+			for (int i : list) {
+				System.out.print(i + ",");
+			}
+			System.out.println();
+		}
 
 		return combiList;
 	}
