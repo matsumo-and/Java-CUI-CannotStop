@@ -58,17 +58,37 @@ public class Player {
 		int currentNum = lanes.get(index);
 
 		if (laneNum >= 2 && laneNum <= 12) {
+
 			if (currentNum < maxLaneMap.get(laneNum)) {
 				lanes.set(index, currentNum + 1);
-			} else {
+			}
+			//最大値に達した時点でそのレーンは完了。
+			if (currentNum == maxLaneMap.get(laneNum)) {
 				setCompletedLane(laneNum);
 			}
 		}
-		
+	}
+
+	public void printLane() {
 		int num = 2;
 		for (int i : lanes) {
-			System.out.print(i + "/" + maxLaneMap.get(num) + " ");
-			num ++;
+			System.out.print(
+					num + ":(" + i + "/" + maxLaneMap.get(num) + ") ");
+			num++;
+		}
+		System.out.println();
+	}
+
+	public void printLane2() {
+		int num = 2;
+		for (int i : lanes) {
+			System.out.print("lane " + String.format("%02d", num) + ":");
+
+			for (int j = 1; j <= maxLaneMap.get(num); j++) {
+				System.out.print(i >= j ? "■ " : "□ ");
+			}
+			System.out.println();
+			num++;
 		}
 		System.out.println();
 	}
