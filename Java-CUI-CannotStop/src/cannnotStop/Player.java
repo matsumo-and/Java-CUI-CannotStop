@@ -74,8 +74,10 @@ public class Player {
 		for (int i : lanes) {
 			System.out.print("lane " + String.format("%02d", num) + ":");
 
-			for (int j = 1; j <= maxLaneMap.get(num); j++) {
-				System.out.print(i >= j ? "■ " : "□ ");
+			if (!completedLane.contains(num)) {
+				for (int j = 1; j <= maxLaneMap.get(num); j++) {
+					System.out.print(i >= j ? "■ " : "□ ");
+				}
 			}
 			System.out.println();
 			num++;

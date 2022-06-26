@@ -12,7 +12,7 @@ public class PlayGame {
 			user.setLane(optionList[userChoise][1]);
 
 			user.printLane();
-			if (Player.getCompletedLane().size() != 0) {
+			if (Player.getCompletedLane().size() == 3) {
 				break;
 			}
 		}
