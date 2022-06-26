@@ -72,16 +72,6 @@ public class Player {
 	public void printLane() {
 		int num = 2;
 		for (int i : lanes) {
-			System.out.print(
-					num + ":(" + i + "/" + maxLaneMap.get(num) + ") ");
-			num++;
-		}
-		System.out.println();
-	}
-
-	public void printLane2() {
-		int num = 2;
-		for (int i : lanes) {
 			System.out.print("lane " + String.format("%02d", num) + ":");
 
 			for (int j = 1; j <= maxLaneMap.get(num); j++) {
