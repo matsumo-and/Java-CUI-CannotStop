@@ -43,12 +43,13 @@ public class PlayerMethod {
 				{ dice1 + dice4, dice3 + dice4 }
 		};
 
+		int i = 0;
 		for (Integer[] list : combiList) {
-			for (int i : list) {
-				System.out.print(i + ",");
-			}
-			System.out.println();
+			System.out.print(i + ":(" + list[0] + "," + list[1] + ") ");
+			i++;
 		}
+
+		System.out.println();
 
 		return combiList;
 	}

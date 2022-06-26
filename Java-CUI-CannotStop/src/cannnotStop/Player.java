@@ -63,7 +63,7 @@ public class Player {
 				lanes.set(index, currentNum + 1);
 			}
 			//最大値に達した時点でそのレーンは完了。
-			if (currentNum == maxLaneMap.get(laneNum)) {
+			if (currentNum + 1 == maxLaneMap.get(laneNum)) {
 				setCompletedLane(laneNum);
 			}
 		}
