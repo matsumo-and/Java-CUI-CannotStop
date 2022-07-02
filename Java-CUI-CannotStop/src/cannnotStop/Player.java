@@ -88,6 +88,10 @@ public class Player {
 	public int getStatus() {
 		return statusList.size();
 	}
+	
+	public boolean isContainStatus(int num) {
+		return statusList.contains(num);
+	}
 
 	public void addStatus(int num) {
 		statusList.add(num);
