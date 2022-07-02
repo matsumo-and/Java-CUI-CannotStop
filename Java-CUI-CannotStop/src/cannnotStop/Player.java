@@ -2,6 +2,7 @@ package cannnotStop;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Player {
 	private static final int MAX_LANE_TWO = 3;
@@ -19,11 +20,10 @@ public class Player {
 	private static final ArrayList<Integer> completedLane = new ArrayList<Integer>();
 
 	private int successedLane = 0;
-	private int status;
+	private HashSet<Integer> statusList = new HashSet<Integer>();
 	private ArrayList<Integer> lanes = new ArrayList<Integer>();
 
 	public Player() {
-		status = 0;
 		for (int i = 0; i <= 10; i++) {
 			lanes.add(0);
 		}
@@ -84,15 +84,17 @@ public class Player {
 		}
 		System.out.println();
 	}
-
-	public void incrementStatus() {
-		if (status <= 3) {
-			status++;
-		}
+	
+	public int getStatus() {
+		return statusList.size();
 	}
 
-	public void resetStatus() {
-		status = 0;
+	public void addStatus(int num) {
+		statusList.add(num);
+	}
+
+	public void clearStatus() {
+		statusList.clear();
 	}
 
 	public void incrementSuccessedLane() {
