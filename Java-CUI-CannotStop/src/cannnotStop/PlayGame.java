@@ -19,7 +19,7 @@ public class PlayGame {
 				}
 			}
 			
-			if(!isContinue) {
+			if(user.getStatus() == 3 && !isContinue) {
 				System.out.println("バーストしました");
 				break;
 				}
