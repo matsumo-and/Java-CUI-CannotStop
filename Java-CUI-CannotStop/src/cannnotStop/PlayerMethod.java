@@ -27,6 +27,26 @@ public class PlayerMethod {
 		}
 		return decision;
 	}
+	
+	public static int getChoiseOfTwo(int optA, int optB) {
+		int decision = -1;
+
+		System.out.println(String.format("%sまたは%sを入力してください。", optA, optB));
+		while (true) {
+			try {
+				decision = scanner.nextInt();
+				if (decision == optA || decision == optB) {
+					break;
+				} else {
+					System.out.println(String.format("%sまたは%sを入力してください。", optA, optB));
+				}
+			} catch (Exception e) {
+				System.out.println("数値を入力してください。");
+				scanner.next();
+			}
+		}
+		return decision;
+	}
 
 	public static Integer[][] getCombination() {
 		int dice1 = Dice.roll();
