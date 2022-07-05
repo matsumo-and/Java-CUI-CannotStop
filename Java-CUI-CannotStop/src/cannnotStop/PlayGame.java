@@ -80,7 +80,7 @@ public class PlayGame {
 			}else {
 				int optionA = optionList[userChoise][0];
 				int optionB = optionList[userChoise][1];
-				//どちらかの数字が既に進んでいるならばどちらも駒を進める
+				
 				if(user.isContainStatus(optionA) && user.isContainStatus(optionB)) {
 					user.setLane(optionA);
 					user.addStatus(optionA);
@@ -88,9 +88,7 @@ public class PlayGame {
 					user.setLane(optionB);
 					user.addStatus(optionB);
 				}else {
-					System.out.println("どちらか選択してください：　(0:" + optionA + ", 1:" + optionB + ")");
-					int optionChoise = PlayerMethod.getChoise(0, 1);
-					if(optionChoise == 0) {
+					if(user.isContainStatus(optionA)) {
 						user.setLane(optionA);
 						user.addStatus(optionA);
 					}else {
