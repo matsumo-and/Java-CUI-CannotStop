@@ -29,7 +29,8 @@ public class PlayGame {
 				//選択肢が何もなければバースト
 				if(!isContinue) {
 					System.out.println("バーストしました");
-					break;
+					user.burstLanes();
+					//break;
 				}
 			}
 			

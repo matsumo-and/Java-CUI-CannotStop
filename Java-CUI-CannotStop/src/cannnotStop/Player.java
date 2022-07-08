@@ -27,6 +27,7 @@ public class Player {
 	public Player() {
 		for (int i = 0; i <= 10; i++) {
 			lanes.add(0);
+			temporaryLanes.add(0);
 		}
 		maxLaneMap.put(2, MAX_LANE_TWO);
 		maxLaneMap.put(3, MAX_LANE_THREE);
@@ -74,10 +75,14 @@ public class Player {
 	public void completeLane() {
 		lanes = temporaryLanes;
 	}
+	
+	public void burstLanes() {
+		temporaryLanes = lanes;
+	}
 
 	public void printLane() {
 		int num = 2;
-		for (int i : lanes) {
+		for (int i : temporaryLanes) {
 
 			if (!completedLane.contains(num)) {
 				System.out.print("lane " + String.format("%02d", num) + ":");
