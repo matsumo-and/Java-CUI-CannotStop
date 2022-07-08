@@ -21,6 +21,7 @@ public class Player {
 
 	private int successedLane = 0;
 	private HashSet<Integer> statusList = new HashSet<Integer>();
+	private ArrayList<Integer> temporaryLanes = new ArrayList<Integer>();
 	private ArrayList<Integer> lanes = new ArrayList<Integer>();
 
 	public Player() {
@@ -60,7 +61,7 @@ public class Player {
 		if (laneNum >= 2 && laneNum <= 12) {
 
 			if (currentNum < maxLaneMap.get(laneNum)) {
-				lanes.set(index, currentNum + 1);
+				temporaryLanes.set(index, currentNum + 1);
 			}
 			//最大値に達した時点でそのレーンは完了。
 			if (currentNum + 1 == maxLaneMap.get(laneNum)) {
@@ -68,6 +69,10 @@ public class Player {
 			}
 			addStatus(laneNum);
 		}
+	}
+	
+	public void completeLane() {
+		lanes = temporaryLanes;
 	}
 
 	public void printLane() {

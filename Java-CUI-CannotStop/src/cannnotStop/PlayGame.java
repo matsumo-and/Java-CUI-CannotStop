@@ -89,9 +89,17 @@ public class PlayGame {
 					}
 				}	
 			}
-			
-
+			//結果を表示
 			user.printLane();
+			
+			System.out.println("手番を継続するか選択してください：　(0: 継続する 1: 手番を終了する)");
+			int runOrStop = PlayerMethod.getChoise(0, 1);
+			boolean isStopTurn = runOrStop == 0 ? false : true;
+			if(isStopTurn) {
+				//レーンの進捗を確定する。
+				user.completeLane();
+			}
+			
 			if (Player.getCompletedLane().size() == 3) {
 				System.out.println("勝利しました。");
 				break;
