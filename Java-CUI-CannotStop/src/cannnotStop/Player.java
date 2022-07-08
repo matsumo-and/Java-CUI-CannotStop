@@ -66,6 +66,7 @@ public class Player {
 			if (currentNum + 1 == maxLaneMap.get(laneNum)) {
 				setCompletedLane(laneNum);
 			}
+			addStatus(laneNum);
 		}
 	}
 
